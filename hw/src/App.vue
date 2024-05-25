@@ -4,7 +4,7 @@ import Card from './components/Card.vue'
 
 <template>
   <div class="container py-4 px-3 mx-auto">
-    <Card msg="Vite + Vue" />
+    <Card />
   </div>
 </template>
 
