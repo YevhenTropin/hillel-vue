@@ -4,7 +4,16 @@ import Card from './components/Card.vue'
 
 <template>
   <div class="container py-4 px-3 mx-auto">
-    <Card />
+    <Card
+      title="Title"
+    />
+    <Card
+      text="Some text"
+    />
+    <Card
+      title="Title"
+      text="Some text"
+    />
   </div>
 </template>
 
