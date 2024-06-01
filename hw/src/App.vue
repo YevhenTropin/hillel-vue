@@ -1,13 +1,9 @@
 <script setup>
-import Card from './components/Card.vue'
+import Progress from './components/Progress.vue'
 </script>
 
 <template>
   <div class="container py-4 px-3 mx-auto">
-    <Card />
+    <Progress :percentage='40' />
   </div>
 </template>
-
-<style scoped>
-
-</style>
