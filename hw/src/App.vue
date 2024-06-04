@@ -1,13 +1,31 @@
-<script setup>
-import Card from './components/Card.vue'
-</script>
-
 <template>
   <div class="container py-4 px-3 mx-auto">
-    <Card />
+    <Definitions :data="definitions" />
   </div>
 </template>
 
-<style scoped>
+<script>
+import Definitions from './components/Definitions.vue'
 
-</style>
+export default {
+  name: 'App',
+  components: {
+    Definitions,
+  },
+  data() {
+    return {
+      definitions: [{
+          dt: 'one',
+          dd: 'two',
+          id: 1
+        },
+        {
+          dt:'another term',
+          dd: 'another description',
+          id: 2
+        },
+      ],
+    };
+  },
+}
+</script>
