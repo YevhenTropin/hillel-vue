@@ -1,16 +1,19 @@
 <template>
   <div class="container py-4 px-3 mx-auto">
-    <BtnGroup />
+    <ListGroup>
+      <p>one</p>
+      <p>two</p>
+    </ListGroup>
   </div>
 </template>
 
 <script>
-import BtnGroup from './components/BtnGroup.vue'
+import ListGroup from './components/ListGroup.vue'
 
 export default {
   name: 'App',
   components: {
-    BtnGroup,
+    ListGroup,
   },
 }
 </script>
