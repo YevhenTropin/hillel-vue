@@ -54,18 +54,10 @@ export default {
   },
   methods: {
     showPrevSlide() {
-      if (this.activeSlideIndex === 0) {
-        this.activeSlideIndex = this.data.length - 1
-      } else {
-        this.activeSlideIndex--
-      }
+      this.activeSlideIndex === 0 ? this.activeSlideIndex = this.data.length - 1 : this.activeSlideIndex--
     },
     showNextSlide() {
-      if (this.activeSlideIndex === this.data.length - 1) {
-        this.activeSlideIndex = 0
-      } else {
-        this.activeSlideIndex++
-      }
+      this.activeSlideIndex === this.data.length - 1 ? this.activeSlideIndex = 0 : this.activeSlideIndex++
     },
   }
 }
