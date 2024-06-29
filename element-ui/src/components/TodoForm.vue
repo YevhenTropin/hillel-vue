@@ -15,8 +15,8 @@
     </el-form-item>
     <el-form-item>
       <el-select
-          v-model="form.status"
-          placeholder="Status"
+        v-model="form.status"
+        placeholder="Status"
       >
         <el-option
           v-for="item in todoStatuses"
@@ -65,12 +65,15 @@ export default {
   methods: {
     handleSubmit () {
       this.$emit('setItems', this.form)
+      this.clearForm()
+    },
+    clearForm () {
       this.form = {
         title: '',
         description: '',
         status: '',
       }
-    }
+    },
   }
 }
 </script>
