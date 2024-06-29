@@ -10,7 +10,7 @@
     <el-select
       v-model="item.status"
       placeholder="Status"
-      size="small"
+      size="default"
       @change="handleChangeItemStatus(item)"
     >
       <el-option
