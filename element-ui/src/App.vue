@@ -13,34 +13,11 @@
               :key="index"
               style="margin-bottom: 15px"
             >
-              <el-card>
-                <template #header>
-                  <div class="card-header">
-                    <span>#{{ item.id }} {{ item.title }}</span>
-                  </div>
-                </template>
-                <p class="text item">{{ item.description }}</p>
-                <p class="text item">{{ item.status }}</p>
-                <el-select
-                  v-model="item.status"
-                  placeholder="Status"
-                  size="small"
-                  @change="handleChangeItemStatus(item, index)"
-                >
-                  <el-option
-                    v-for="statusItem in todoStatuses"
-                    :key="statusItem.id"
-                    :label="statusItem.title"
-                    :value="statusItem.value"
-                  ></el-option>
-                </el-select>
-                <template #footer>
-                  <el-button
-                    type="danger"
-                    @click="handleRemoveItem(item, index)"
-                  >Delete</el-button>
-                </template>
-              </el-card>
+              <item-card
+                :item="item"
+                @changeItemStatus="handleChangeItemStatus(item, index)"
+                @removeItem="handleRemoveItem(item, index)"
+              />
             </el-col>
           </el-row>
         </el-col>
@@ -50,10 +27,10 @@
 </template>
 
 <script>
-import { ElContainer, ElMain, ElRow, ElCol, ElButton, ElCard } from "element-plus"
+import { ElContainer, ElMain, ElRow, ElCol } from "element-plus"
 import TodoForm from "./components/TodoForm.vue"
+import ItemCard from './components/ItemCard.vue'
 import storage from "./functions/LStorage.js"
-import { todoStatuses } from './common/options.js'
 
 export default {
   name: 'App',
@@ -62,18 +39,12 @@ export default {
     ElMain,
     ElRow,
     ElCol,
-    ElButton,
-    ElCard,
     TodoForm,
+    ItemCard,
   },
   data () {
     return {
       todoItems: [],
-    }
-  },
-  computed: {
-    todoStatuses () {
-      return todoStatuses;
     }
   },
   created() {
@@ -88,7 +59,7 @@ export default {
       storage.removeItem(item.id)
       this.todoItems.splice(index, 1)
     },
-    handleChangeItemStatus (item, index) {
+    handleChangeItemStatus (item) {
       storage.changeItemStatus(item)
     },
   }
